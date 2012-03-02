@@ -16,7 +16,7 @@ class foreman_proxy::params {
 
   # TFTP settings
   require 'tftp'  # ensures we can access tftp module parameters
-  $tftp           = true
+  $tftp           = false
   $syslinux_root  = '/usr/share/syslinux'
   $syslinux_files = ['pxelinux.0','menu.c32','chain.c32']
   $tftproot       = $tftp::params::root
