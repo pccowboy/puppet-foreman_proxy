@@ -1,5 +1,5 @@
 class foreman_proxy::tftp {
-  include tftp
+  require 'tftp'
 
   file{ $foreman_proxy::params::tftp_dir:
     ensure  => directory,
