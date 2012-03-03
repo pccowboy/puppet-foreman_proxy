@@ -1,6 +1,5 @@
 class foreman_proxy::tftp {
   include ::tftp
-  include foreman_proxy::params
 
   file{ $foreman_proxy::params::tftp_dir:
     ensure  => directory,
@@ -11,7 +10,7 @@ class foreman_proxy::tftp {
   }
 
   foreman_proxy::tftp::sync_file{ ['pxelinux.0','menu.c32','chain.c32']:
-    source_path => $foreman_proxy::params::syslinux_root,
+    source_path => ${foreman_proxy::params::syslinux_root},
     target_path => $foreman_proxy::params::tftproot,
     require     => Class['tftp::install'];
   }
