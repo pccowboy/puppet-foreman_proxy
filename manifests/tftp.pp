@@ -9,7 +9,7 @@ class foreman_proxy::tftp {
     recurse => true;
   }
 
-  foreman_proxy::tftp::sync_file{$foreman_proxy::params::syslinux_files:
+  foreman_proxy::tftp::sync_file{ $foreman_proxy::params::syslinux_files:
     source_path => $foreman_proxy::params::syslinux_root,
     target_path => $foreman_proxy::params::tftproot,
     require     => Class['tftp::install'];
